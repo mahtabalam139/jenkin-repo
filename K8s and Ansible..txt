@@ -1,0 +1,128 @@
+    1  yum update
+    2  swapoff -a
+    3  setenforce 0
+    4  yum install docker -y
+    5  systemctl enable docker
+    6  systemctl start docker
+    7  cat <<EOF > /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
+enabled=1
+gpgcheck=1
+repo_gpgcheck=0
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+exclude=kube*
+EOF
+
+    8  cat <<EOF >  /etc/sysctl.d/k8s.conf
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+EOF
+
+    9  sysctl --system
+   10  yum install -y kubeadm-1.21.3 kubelet-1.21.3 kubectl-1.21.3 --disableexcludes=kubernetes
+   11  systemctl enable kubelet
+   12  systemctl start kubelet
+   13  sudo kubeadm init --apiserver-advertise-address=172.31.2.115 --pod-network-cidr=192.168.0.0/16
+   14    mkdir -p $HOME/.kube
+   15    sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+   16    sudo chown $(id -u):$(id -g) $HOME/.kube/config
+   17  kubectl get nodes
+   18  sudo kubectl apply -f https://docs.projectcalico.org/v3.3/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml
+   19  kubectl get nodes
+   20  sudo kubectl apply -f https://docs.projectcalico.org/v3.8/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml
+   21  kubectl get nodes
+   22  kubectl get nodes
+   23  kubectl get nodes
+   24  kubectl get nodes
+   25  kubectl get nodes
+   26  kubectl get pods --all-namespaces
+   27  kubeadm token create --print-join-command
+   28  kubectl get nodes
+   29  kubectl get nodes
+   30  kubectl get  all
+   31  kubectl get deploy
+   32  kubectl get pods
+   33  ls
+   34  docker images
+   35  docker search vikuldocker
+   36  kubectl create deployment springboot1 --image=vikuldocker/springboot-demo:1
+   37  kubectl get  all
+   38  kubectl get  all
+   39  docker images
+   40  kubectl get svc
+   41  kubectl expose deployment springboot1 --port=8080 --type=NodePort
+   42  kubectl get svc
+   43  kubectl get pods
+   44  kubectl get pods -o wide
+   45  kubectl describe pod springboot1-59d64bfbff-jdd89
+   46  kubectl get all
+   47  kubectl set image deployment/springboot1 springboot-demo=vikuldocker/springboot-demo:2
+   48  kubectl set image deployment/springboot1 springboot-demo=vikuldocker/springboot-demo:1
+   49  kubectl set image deployment/springboot1 springboot-demo=vikuldocker/springboot-demo:2
+   50  kubectl get pods
+   51  kubectl get deploy
+   52  kubectl get all
+   53  kubectl rollout history springboot1
+   54  kubectl rollout history deployment/springboot1
+   55  kubectl rollout undo  deployment/springboot1
+   56  ls
+   57  vi deployment.yaml
+   58  kubectl apply -f deployment.yaml
+   59  kubectl get pods
+   60  kubectl get pods
+   61  kubectl get svc
+   62  vi service.yaml
+   63  kubectl apply -f service.yaml
+   64  kubectl get svc
+   65  kubectl get pods -o wide
+   66  kubectl get all
+   67  kubectl scale deployment addressbook --replica=4
+   68  kubectl scale deployment addressbook --replicas=4
+   69  kubectl get all
+   70  kubectl get all
+   71  kubectl get pods -o wide
+   72  kubectl scale deployment addressbook --replicas=1
+   73  kubectl get pods -o wide
+   74  cat deployment.yaml
+   75  yum update
+   76  yum install -y epel-release
+   77  yum install -y ansible
+   78  ansible --version
+   79  vi /etc/ansible/hosts
+   80  cd /etc/ansible/
+   81  ls
+   82  vi hosts
+   83  cd /home/ec2-user/
+   84  ansible -m ping localhost
+   85  cat  /etc/ansible/hosts
+   86  ansible -m ping demo
+   87  ls
+   88  cat  /etc/ansible/hosts
+   89  ls
+   90  ls
+   91  ansible -m ping demo
+   92  vi playbook.yml
+   93  anisble-playbook playbook.yml
+   94  ansible-playbook playbook.yml
+   95  ansible-playbook playbook.yml
+   96  cat /etc/ansible/hosts
+   97  vi playbook.yml
+   98  ansible-playbook playbook.yml
+   99  cd /etc/ansible/
+  100  ls
+  101  cd roles/
+  102  ls
+  103  ansible-galaxy create my-role
+  104  ansible-galaxy init my-role
+  105  ls
+  106  cd my-role/
+  107  ls
+  108  cd tasks/
+  109  ls
+  110  vi main.yml
+  111  cd /home/ec2-user/
+  112  vi role.yml
+  113  vi /etc/ansible/roles/my-role/tasks/main.yml
+  114  ansible-playbook role.yml

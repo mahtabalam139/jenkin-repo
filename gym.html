@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FitLife Gym</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+
+        header {
+            background-color: #1f1f1f;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            padding: 5px 10px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #444;
+            border-radius: 5px;
+        }
+
+        .hero {
+            background-image: url('https://via.placeholder.com/1500x800');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-size: 4em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin-bottom: 30px;
+        }
+
+        .hero a {
+            padding: 15px 30px;
+            background-color: #e63946;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .hero a:hover {
+            background-color: #d62839;
+        }
+
+        .services {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: #f8f9fa;
+        }
+
+        .services h3 {
+            font-size: 2.5em;
+            margin-bottom: 40px;
+            color: #333;
+        }
+
+        .service-box {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .service-box div {
+            background-color: #fff;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 300px;
+            margin: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-box div:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-box img {
+            width: 80px;
+            margin-bottom: 20px;
+        }
+
+        .service-box h4 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .service-box p {
+            font-size: 1em;
+            color: #666;
+        }
+
+        .cta {
+            background-color: #1f1f1f;
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .cta h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .cta a {
+            padding: 15px 30px;
+            background-color: #e63946;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .cta a:hover {
+            background-color: #d62839;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>FitLife Gym</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Classes</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div>
+            <h2>Transform Your Body Today</h2>
+            <p>Join us for the best workout experience of your life.</p>
+            <a href="#">Join Now</a>
+        </div>
+    </section>
+
+    <section class="services">
+        <h3>Our Services</h3>
+        <div class="service-box">
+            <div>
+                <img src="https://via.placeholder.com/80" alt="Personal Training">
+                <h4>Personal Training</h4>
+                <p>Work one-on-one with our expert trainers to reach your fitness goals.</p>
+            </div>
+            <div>
+                <img src="https://via.placeholder.com/80" alt="Group Classes">
+                <h4>Group Classes</h4>
+                <p>Join our fun and energetic group classes for a complete workout.</p>
+            </div>
+            <div>
+                <img src="https://via.placeholder.com/80" alt="Nutrition Plans">
+                <h4>Nutrition Plans</h4>
+                <p>Get personalized nutrition plans that complement your fitness routine.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h2>Ready to Make a Change?</h2>
+        <p>Sign up today and get your first week free!</p>
+        <a href="#">Get Started</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 FitLife Gym. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
